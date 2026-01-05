@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Study Universe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;600;800&display=swap');
+
+        :root {
+            --neon-blue: #08f7fe;
+            --neon-purple: #bc13fe;
+            --neon-pink: #fe53bb;
+            --neon-green: #39ff14;
+            --neon-yellow: #fefe33;
+            --bg-dark: #050505;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(188, 19, 254, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(8, 247, 254, 0.1) 0%, transparent 40%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* כותרת משוגעת מונפשת */
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-pink), var(--neon-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 300% 300%;
+            animation: gradient-move 5s ease infinite;
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
+        }
+
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* גריד של כל המקצועות */
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .subject-card {
+            position: relative;
+            height: 280px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .subject-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .card-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .subject-card:hover .card-img {
+            opacity: 0.7;
+        }
+
+        .card-overlay {
+            position: relative;
+            z-index: 2;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        .card-overlay i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* צבעים ייחודיים לכל כרטיס */
+        .java { border-bottom: 5px solid var(--neon-purple); }
+        .java i { color: var(--neon-purple); }
+        
+        .sql { border-bottom: 5px solid var(--neon-blue); }
+        .sql i { color: var(--neon-blue); }
+
+        .c-lang { border-bottom: 5px solid var(--neon-green); }
+        .c-lang i { color: var(--neon-green); }
+
+        .html-js { border-bottom: 5px solid var(--neon-pink); }
+        .html-js i { color: var(--neon-pink); }
+
+        .math { border-bottom: 5px solid var(--neon-yellow); }
+        .math i { color: var(--neon-yellow); }
+
+        .digital { border-bottom: 5px solid #ff4d4d; }
+        .digital i { color: #ff4d4d; }
+
+        .algo { border-bottom: 5px solid #ffa500; }
+        .algo i { color: #ffa500; }
+
+        /* כפתור GPT צף */
+        .gpt-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 0 20px var(--neon-purple);
+            cursor: pointer;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(188, 19, 254, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(188, 19, 254, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(188, 19, 254, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MY STUDY HUB</h1>
+        <p style="color: var(--neon-blue); letter-spacing: 3px;">FUTURE DEVELOPER AT WORK</p>
+    </header>
+
+    <div class="main-grid">
+        <a href="../HTML/SUBJECT.HTML" class="subject-card java">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fab fa-java"></i>
+                <h2>JAVA</h2>
+                <p>Backend & Objects</p>
+            </div>
+        </a>
+
+        <a href="../HTML/SUBJECT.HTML"  class="subject-card sql" >
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544383088-062e245607b2?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fas fa-database"></i>
+                <h2>SQL</h2>
+                <p>Data Management</p>
+            </div>
+        </a>
+
+        <a href="../HTML/SUBJECT.HTML" class="subject-card c-lang">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fas fa-microchip"></i>
+                <h2>C Language</h2>
+                <p>Low Level Programming</p>
+            </div>
+        </a>
+
+        <a href="../HTML/SUBJECT.HTML" class="subject-card html-js">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fab fa-js-square"></i>
+                <h2>JS & HTML</h2>
+                <p>Frontend Magic</p>
+            </div>
+        </a>
+
+        <a href="#" class="subject-card math">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fas fa-square-root-alt"></i>
+                <h2>מתמטיקה</h2>
+                <p>Logic & Calculus</p>
+            </div>
+        </a>
+
+        <a href="../HTML/SUBJECT.HTML" class="subject-card digital">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fas fa-bolt"></i>
+                <h2>מערכות ספרתיות</h2>
+                <p>Binary & Gates</p>
+            </div>
+        </a>
+
+        <a href="../HTML/SUBJECT.HTML" class="subject-card algo">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1509228468518-180dd482180c?w=500')"></div>
+            <div class="card-overlay">
+                <i class="fas fa-brain"></i>
+                <h2>אלגוריתמים</h2>
+                <p>Problem Solving</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="gpt-btn">
+        <i class="fas fa-robot"></i>
+    </div>
+
+</body>
+</html>

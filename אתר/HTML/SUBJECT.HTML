@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Subject Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background: #0a0a0c; color: white; font-family: sans-serif; padding: 40px; }
+        .nav-back { color: #00f3ff; text-decoration: none; font-size: 1.2rem; }
+        .container { max-width: 1000px; margin: auto; }
+        .section-box {
+            background: rgba(255,255,255,0.05);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-right: 5px solid #00f3ff;
+        }
+        input[type="file"] { margin-top: 10px; color: #ccc; }
+        .btn-gpt { background: #bc13fe; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../HTML/INDEXS.HTML" class="nav-back"><i class="fas fa-arrow-right"></i> חזרה לבית</a>
+        <h1 id="subjectTitle">שם המקצוע</h1>
+
+        <div class="section-box">
+            <h3><i class="fas fa-chalkboard-teacher"></i> חומרי המורה</h3>
+            <p>כאן יופיעו הקישורים שהמורה שולחת...</p>
+        </div>
+
+        <div class="section-box">
+            <h3><i class="fas fa-tasks"></i> שיעורי בית והגשות</h3>
+            <input type="file" multiple>
+            <p style="font-size: 0.8rem;">קבצים שהועלו: (יופיעו כאן לאחר חיבור לשרת)</p>
+        </div>
+
+        <div class="section-box">
+            <h3><i class="fas fa-file-powerpoint"></i> המצגות שלי</h3>
+            <button class="btn-gpt">סכם לי עם GPT</button>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('subjectTitle').innerText = urlParams.get('sub') || 'מקצוע';
+    </script>
+</body>
+</html>
